@@ -16,12 +16,15 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+ifneq ($(filter i965,$(BOARD_GPU_DRIVERS)),)
+
+LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SHARED_LIBRARIES := liblog libEGL libhardware libutils libdrm
-LOCAL_CFLAGS := -DEGL_EGLEXT_PROTOTYPES
-LOCAL_C_INCLUDES += frameworks/native/include/utils/ hardware/drm_gralloc external/drm external/drm/include/drm
+LOCAL_CFLAGS := -DEGL_EGLEXT_PROTOTYPES -DLOG_TAG=\"hwcomposer\"
+LOCAL_C_INCLUDES += system/core/include/utils/ hardware/drm_gralloc external/drm external/drm/include/drm
 LOCAL_SRC_FILES := hwcomposer.cpp
 LOCAL_MODULE := hwcomposer.$(TARGET_PRODUCT)
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
+endif # BOARD_GPU_DRIVERS
