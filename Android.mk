@@ -16,7 +16,7 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-ifneq ($(filter i965,$(BOARD_GPU_DRIVERS)),)
+ifneq ($(filter i965 vc4,$(BOARD_GPU_DRIVERS)),)
 
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SHARED_LIBRARIES := liblog libEGL libhardware libutils libdrm
