@@ -21,7 +21,7 @@ ifneq ($(filter i965 vc4,$(BOARD_GPU_DRIVERS)),)
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SHARED_LIBRARIES := liblog libEGL libhardware libutils libdrm
 LOCAL_CFLAGS := -DEGL_EGLEXT_PROTOTYPES -DLOG_TAG=\"hwcomposer\"
-LOCAL_C_INCLUDES += system/core/include/utils/ hardware/drm_gralloc external/drm external/drm/include/drm
+LOCAL_C_INCLUDES += system/core/include/utils/ hardware/drm_gralloc external/libdrm external/libdrm/include/drm
 LOCAL_SRC_FILES := hwcomposer.cpp
 LOCAL_MODULE := hwcomposer.$(TARGET_PRODUCT)
 LOCAL_MODULE_TAGS := optional
