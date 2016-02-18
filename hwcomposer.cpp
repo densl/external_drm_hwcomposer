@@ -125,7 +125,7 @@ static int hwc_prepare(hwc_composer_device_1 *dev, size_t numDisplays,
 	struct hwc_context_t* ctx = (struct hwc_context_t *) &dev->common;
 
 	// SurfaceFlinger wants to handle the complete composition
-	if (!displays[0]->hwLayers || displays[0]->numHwLayers == 0)
+	if (displays[0]->numHwLayers == 0)
 		return 0;
 
 	int topmost = displays[0]->numHwLayers;
