@@ -89,7 +89,7 @@ private:
 
 struct hwc_context_t {
 	hwc_composer_device_1 device;
-	struct drm_module_t *gralloc_module;
+	struct drm_gralloc1_module_t *gralloc_module;
 	hwc_procs_t *procs;
 	android::sp<vsync_worker> vsync_thread;
 };
